@@ -1,7 +1,23 @@
 
 
-const BurgerStack = (props) => {
-    return <ul>// map through props.ingredients</ul>;
-  };
+const BurgerStack = ({ stack, removeFromBurger }) => {
+    return (
+        <div>
+            <h2>Your Burger Stack</h2>
+            <ul>
+            {stack.map((ingredient, index) => (
+                <li key={index} style={{ backgroundColor: ingredient.color }}>
+                    {ingredient.name}
+                    <button onClick={() => removeFromBurger(ingredient.name)}>X</button>
+                </li>
+            ))}
+            </ul>
+        </div>
+    );
+};
+
   
   export default BurgerStack;
+
+
+
